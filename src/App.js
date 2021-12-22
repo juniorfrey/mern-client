@@ -1,10 +1,9 @@
+import AppRouter from "./routers/AppRouter";
 
 function App() {
   return (
     <div className="App">
-      <h1 className="App-header">
-        App lista
-      </h1>
+        <AppRouter />
     </div>
   );
 }
