@@ -19,7 +19,7 @@ export default function AppRouter() {
                 <Route exact path="/login" element={<LoginPage />} />
                 <Route exact path="/registro" element={<RegisterPage />} />
                 <Route exact path="/perfil" element={<AccountPage />} />
-                <Route exact path="/prpyectos" element={<ProjectsPage />} />
+                <Route exact path="/proyectos" element={<ProjectsPage />} />
                 <Route exact path="/prpyecto/:proyectoId" element={<ProjectPage />} />
                 <Route exact path="/admin/usuarios" element={<UsersPage />} />
                 <Route exact path="*" element={<NotFounfdPage />} />
