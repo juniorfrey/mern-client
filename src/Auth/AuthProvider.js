@@ -1,10 +1,11 @@
 import { createContext, useEffect, useState } from "react";
+import roles from "../helpers/roles";
 export const AuthContext = createContext();
 
 const AuthProvider = ({children}) => {
 
     const users = {
-        id:1, role:'regular'
+        id:1, role: roles.regular
     }
     const [user, setUser] = useState(users);
 

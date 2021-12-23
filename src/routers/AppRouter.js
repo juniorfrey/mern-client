@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Layout from "../components/layouts/Layout";
+import roles from "../helpers/roles";
 
 import AccountPage from "../pages/AccountPage";
 import UsersPage from "../pages/admin/UsersPage";
@@ -46,7 +47,7 @@ export default function AppRouter() {
               <Route path="/prpyecto/:proyectoId" element={<ProjectPage />} />
             </Route>
 
-            <Route exact path="/admin/usuarios" element={<PrivateRoute hasRole="admin" />}>
+            <Route exact path="/admin/usuarios" element={<PrivateRoute hasRole={roles.admin} />}>
               <Route exact path="/admin/usuarios" element={<UsersPage />} />
             </Route>
             {/* Fin Rutas privadas */}
