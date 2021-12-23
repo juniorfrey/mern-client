@@ -9,7 +9,7 @@ const AuthProvider = ({children}) => {
     }*/
     const users = null;
     const [user, setUser] = useState(users);
-    const login = (userCredentials) => setUser({ id: 1, role: roles.regular });
+    const login = (userCredentials) => setUser({ id: 1, name:"Fredys", email:"juniorfrey2990@gmail.com", role: roles.regular });
     const logout = () => setUser(null);
     const isLogged = () => !!user;
     const hasRole = (role) => user?.role === role;
