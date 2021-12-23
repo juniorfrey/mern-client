@@ -1,15 +1,14 @@
-import { useState } from 'react';
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import useAuth from "../../Auth/useAuth";
-import routes from "../../helpers/routes";
 import DeleteModal from "./components/DeleteModal";
+import ChangePasswordModal from "./components/ChangePasswordModal";
+import useModal from '../../hooks/useModal';
 export default function AccountPage() {
-    const {user} = useAuth();
-    const [isOpemDeleteModal, setIsOpemDeleteModal] = useState(false);
-    const openDeleteModal = () => setIsOpemDeleteModal(true);
-    const closeDeleteModal = () => setIsOpemDeleteModal(false);
-  
+  const { user } = useAuth();
+
+  const [isOpemDeleteModal, openDeleteModal, closeDeleteModal] = useModal();
+  const [isOpemChangePasswordModal, openChangePasswordModal, closeChangePasswordModal] = useModal();
+
   return (
     <>
       <Container>
@@ -38,9 +37,15 @@ export default function AccountPage() {
                 <b>Nombre: </b> {user.role}{" "}
               </p>
               <Button variant="success">Editar cuenta</Button>
-              <Button variant="link" className="mt-1">
+
+              <Button
+                variant="link"
+                className="mt-1"
+                onClick={openChangePasswordModal}
+              >
                 Cambiar contraseña
               </Button>
+
               <Button
                 variant="link"
                 className="mt-3  text-danger "
@@ -54,6 +59,11 @@ export default function AccountPage() {
       </Container>
 
       <DeleteModal isOpen={isOpemDeleteModal} close={closeDeleteModal} />
+
+      <ChangePasswordModal
+        isOpen={isOpemChangePasswordModal}
+        close={closeChangePasswordModal}
+      />
     </>
   );
 }

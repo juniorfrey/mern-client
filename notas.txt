@@ -1,0 +1,6 @@
+librerias para instalar 
+ - react-router-dom
+ - react-bootstrap
+ - react-hook-form
+ - yup
+ - npm i @hookform/resolvers
