@@ -46,7 +46,7 @@ export default function AppRouter() {
               <Route path="/prpyecto/:proyectoId" element={<ProjectPage />} />
             </Route>
 
-            <Route exact path="/admin/usuarios" element={<PrivateRoute />}>
+            <Route exact path="/admin/usuarios" element={<PrivateRoute hasRole="admin" />}>
               <Route exact path="/admin/usuarios" element={<UsersPage />} />
             </Route>
             {/* Fin Rutas privadas */}

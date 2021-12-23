@@ -3,7 +3,10 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({children}) => {
 
-    const [user, setUser] = useState(null);
+    const users = {
+        id:1, role:'regular'
+    }
+    const [user, setUser] = useState(users);
 
     const contextValue = {
       user,
