@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Layout from "../components/layouts/Layout";
 import roles from "../helpers/roles";
+import routes from "../helpers/routes";
 
 import AccountPage from "../pages/AccountPage";
 import UsersPage from "../pages/admin/UsersPage";
@@ -19,36 +20,36 @@ export default function AppRouter() {
         <Layout>
           <Routes>
             <Route exact path="/" element={<PublicRoute />}>
-              <Route exact path="/" element={<HomePage />} />
+              <Route exact path={routes.home} element={<HomePage />} />
             </Route>
             {/* Rutas publicas */}
             <Route exact path="/" element={<PublicRoute />}>
-              <Route exact path="/login" element={<LoginPage />} />
+              <Route exact path={routes.login} element={<LoginPage />} />
             </Route>
             <Route exact path="/" element={<PublicRoute />}>
-              <Route exact path="/registro" element={<RegisterPage />} />
+              <Route exact path={routes.registro} element={<RegisterPage />} />
             </Route>
             {/* Fin de rutas publicas*/}
 
             {/* Rutas privadas */}
-            <Route exact path="/perfil" element={<PrivateRoute />}>
-              <Route path="/perfil" element={<AccountPage />} />
+            <Route exact path="/" element={<PrivateRoute />}>
+              <Route path={routes.perfil} element={<AccountPage />} />
             </Route>
 
             <Route exact path="/" element={<PrivateRoute />}>
-              <Route path="/proyectos" element={<ProjectsPage />} />
+              <Route path={routes.proyectos} element={<ProjectsPage />} />
+            </Route>
+
+            <Route exact path={routes.proyecto()} element={<PrivateRoute />}>
+              <Route path={routes.proyecto()} element={<ProjectPage />} />
             </Route>
 
             <Route
               exact
-              path="/prpyecto/:proyectoId"
-              element={<PrivateRoute />}
+              path="/admin/usuarios"
+              element={<PrivateRoute hasRole={roles.admin} />}
             >
-              <Route path="/prpyecto/:proyectoId" element={<ProjectPage />} />
-            </Route>
-
-            <Route exact path="/admin/usuarios" element={<PrivateRoute hasRole={roles.admin} />}>
-              <Route exact path="/admin/usuarios" element={<UsersPage />} />
+              <Route exact path={routes.admin.users} element={<UsersPage />} />
             </Route>
             {/* Fin Rutas privadas */}
 
