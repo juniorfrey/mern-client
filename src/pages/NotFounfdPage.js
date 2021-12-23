@@ -5,8 +5,8 @@ export default function NotFounfdPage() {
 
     return (
       <Container>
-        <Row>
-          <Col  md={{ span: 6, offset: 3 }} className='text-center mt-5'>
+        <Row className='mt-5'>
+          <Col  md={{ span: 6, offset: 3 }} className='text-center'>
                 <img
                 style={{ width: "100%" }}
                 src="/img/404-not-found.svg"
